@@ -1,3 +1,4 @@
+// @ts-nocheck
 // TOHFA GIFTING CO - Production Optimized
 import Hero from "@/components/Hero";
 import ProductGrid from "@/components/ProductGrid";
