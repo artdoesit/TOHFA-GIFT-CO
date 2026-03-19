@@ -1,36 +1,43 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# TOHFA GIFTING CO - Premium Gift E-commerce Platform
 
-## Getting Started
+Welcome to the **TOHFA GIFTING CO** official repository. This is a high-end, production-ready e-commerce platform built with Next.js 14, Tailwind CSS, and Firebase.
 
-First, run the development server:
+## 🚀 Live Demo & Deployment
+This project is optimized for a seamless deployment on **Vercel**. 
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+### Deployment Steps:
+1. **Environment Variables**: Copy `.env.example` to `.env.local` and fill in your Firebase credentials.
+2. **GitHub**: Push this repository to your GitHub account.
+3. **Vercel**: Import the project and add your environment variables in the Vercel dashboard.
+
+## ✨ Features
+- **Premium Glassmorphic UI**: Mesh gradients, backdrop-blur effects, and a stunning 3D aesthetic.
+- **Dynamic Shop Page**: Real-time filtering by category, price, and search terms.
+- **3D Product Interaction**: A custom 3D Flip Card modal for viewing product details.
+- **Secure Admin Panel**: Manage your products through a protected dashboard (locked to `admin@tohfagifting.co`).
+- **One-Click Ordering**: Integrated WhatsApp checkout and UPI payment deep-linking.
+- **Mobile Optimized**: Zero lag, iOS-friendly inputs, and fully responsive layouts.
+
+## 🛠️ Tech Stack
+- **Framework**: Next.js 15 (App Router)
+- **Styling**: Tailwind CSS 4.0
+- **Animations**: Framer Motion
+- **Backend**: Firebase (Firestore & Authentication)
+- **Icons**: Lucide React
+
+## 🔐 Firebase Security Setup
+To protect your admin panel, use the following Firestore rules:
+
+```javascript
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /products/{product} {
+      allow read: if true;
+      allow write: if request.auth != null && request.auth.token.email == "admin@tohfagifting.co";
+    }
+  }
+}
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+Built with ❤️ for **TOHFA GIFTING CO**.
